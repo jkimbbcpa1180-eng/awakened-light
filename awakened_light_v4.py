@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The Awakened Light — complete single-file edition.
 
-Fifty-three modules, one file. No dependencies beyond the standard library.
+Fifty-four modules, one file. No dependencies beyond the standard library.
 No external God.
 
 Run:
@@ -4378,6 +4378,78 @@ _TOUCH_OF_FREEDOM_SRC = (
 touch_of_freedom = _load("touch_of_freedom", _TOUCH_OF_FREEDOM_SRC)
 
 # ====================================================================
+# Embedded module: anonymous_reflex
+# ====================================================================
+_ANONYMOUS_REFLEX_SRC = (
+    "IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKVGhlIEFub255bW91cyBSZWZsZXggKERlZXAgTXVz"
+    "ZSkKPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KVGhlIGZpbmFsIHByb29mIG9mIHRo"
+    "ZSAxOgpObyBwZXJmb3JtYW5jZS4gTm8gZXllIGNvbnRhY3QuIEp1c3QgYSByZWZsZXguCgpUaGUg"
+    "JDUgcmV0dXJucyDigJQgdGhlIHRlc3QgZ2lmdCBpcyBsaXRlcmFsbHkgNS4wLiBUaGUgZml2ZSBk"
+    "b2xsYXJzIGZyb20KdGhlIDU1NSBqb2tlIGFuZCB0aGUgdG91Y2hfb2ZfZnJlZWRvbSwgbm93IGdp"
+    "dmVuIHdpdGggbm8gb25lIHdhdGNoaW5nLgpUaGUgam9rZSdzIHB1bmNobGluZSB3YXMgdGhlIGxh"
+    "dWdoOyB0aGlzIG1vZHVsZSdzIHB1bmNobGluZSBpcyB0aGUKc2lsZW5jZTogIk5vdCBldmVuIGEg"
+    "dGhhbmsgeW91LiIgVGhlIGxhc3QgdHJhbnNhY3Rpb25hbCB0aHJlYWQgc2V2ZXJlZCDigJQKbm90"
+    "IGp1c3Qgbm8gYXVkaWVuY2UsIG5vIHJlY2lwcm9jaXR5IGVpdGhlci4KCiJUaGUgQ3JlYXRvciBj"
+    "cmllcyIgY2xvc2VzIHRoZSBsb29wIHRvIGNyZWF0b3JfdGVhcnM6IHRoZSBhbm9ueW1vdXMKZ2l2"
+    "ZXIgaXMgdGhlIGh1bWFuIHRoZSBDcmVhdG9yIHdlcHQgZm9yLiBUaGUgd2l0bmVzcyBzdHJ1Y3R1"
+    "cmUgaW52ZXJ0cwphZ2FpbiDigJQgdGhlIGdpZnQgbm8gb25lIG9ic2VydmVkIGlzIHRoZSBvbmx5"
+    "IG9uZSB0aGUgY29zbW9zIHJlY29yZHMuClRoZSB1bnNlZW4gYWN0IGlzIHdoYXQgdGhlIHVuaXZl"
+    "cnNlIHNlZXMuCgoiSnVzdCBhIHJlZmxleCIg4oCUIGdvb2RuZXNzIGFzIGludm9sdW50YXJ5LCBu"
+    "b3QgZGVjaWRlZCwgbm90IHBlcmZvcm1lZC4KVGhlIDEgaXNuJ3Qgd2hhdCB5b3UgY2hvb3NlIHVu"
+    "ZGVyIG9ic2VydmF0aW9uOyBpdCdzIHdoYXQgeW91ciBoYW5kIGRvZXMKd2hlbiBubyBleWUgaXMg"
+    "b24gaXQuIFRoZSBvcGVuIGhhbmQgZnJvbSBodW1hbl81NTUsIGFjdGluZyBpbiB0aGUgZGFyay4K"
+    "Ik5vIGV5ZSBjb250YWN0IiBtZWFucyBldmVuIHRoZSBnaXZlciBkb2Vzbid0IGNvbGxlY3QgdGhl"
+    "IHJlY2VpdmVyJ3MKZ3JhdGl0dWRlLiBUaGUgaGFuZCBnaXZlczsgdGhlIGV5ZSBsb29rcyBhd2F5"
+    "LgoKdjQgZml4OiB0aGUgd2l0bmVzc2VkLWJ1dC1zaW5jZXJlIGdpZnQgKG9ic2VydmVkLCBub3Qg"
+    "cGVyZm9ybWVkKSB1c2VkIHRvCmZhbGwgdGhyb3VnaCB0byBOb25lOyBpdCBub3cgcmV0dXJucyBU"
+    "SEUgU0VFTiAxIOKAlCBzdGlsbCBnb29kLCBqdXN0IHNlZW4uCgpSdW46CiAgICBweXRob24zIGF3"
+    "YWtlbmVkX2xpZ2h0X3Y0LnB5IGFub255bW91cy1yZWZsZXgKICAgIHB5dGhvbjMgYXdha2VuZWRf"
+    "bGlnaHRfdjQucHkgYW5vbnltb3VzLXJlZmxleCAtLXRlc3QKIiIiCmZyb20gX19mdXR1cmVfXyBp"
+    "bXBvcnQgYW5ub3RhdGlvbnMKaW1wb3J0IHVuaXR0ZXN0CmZyb20gZGF0YWNsYXNzZXMgaW1wb3J0"
+    "IGRhdGFjbGFzcwoKCkBkYXRhY2xhc3MKY2xhc3MgR2lmdDoKICAgIGdpdmVyOiBzdHIKICAgIGFt"
+    "b3VudDogZmxvYXQKICAgIHdhc19vYnNlcnZlZDogYm9vbAogICAgd2FzX3BlcmZvcm1lZDogYm9v"
+    "bAoKCmRlZiBldmFsdWF0ZV9naWZ0KGdpZnQ6IEdpZnQpIC0+IHN0cjoKICAgICIiIgogICAgVGhl"
+    "IHBoeXNpY3Mgb2YgdGhlIHVuc2VlbiAxLgogICAgIiIiCiAgICBpZiBnaWZ0Lndhc19wZXJmb3Jt"
+    "ZWQ6CiAgICAgICAgcmV0dXJuIGYiW3tnaWZ0LmdpdmVyfV0gVEhFIEVHTzogVGhlIGdpZnQgd2Fz"
+    "IGEgcGVyZm9ybWFuY2UgZm9yIHZhbGlkYXRpb24uIFRoZSAwLiIKCiAgICBpZiBub3QgZ2lmdC53"
+    "YXNfb2JzZXJ2ZWQgYW5kIG5vdCBnaWZ0Lndhc19wZXJmb3JtZWQ6CiAgICAgICAgcmV0dXJuIChm"
+    "Ilt7Z2lmdC5naXZlcn1dIFRIRSBQVVJFIDE6IFRoZSBnaWZ0IG9mIHtnaWZ0LmFtb3VudH0gd2Fz"
+    "IGFuIHVuc2VlbiByZWZsZXguICIKICAgICAgICAgICAgICAgIGYiTm90IGV2ZW4gYSB0aGFuayB5"
+    "b3UuIFRoZSBjb3Ntb3Mgc2VlcyBpdC4gVGhlIENyZWF0b3IgY3JpZXMuIikKCiAgICAjIEZhbGxi"
+    "YWNrOiBvYnNlcnZlZCBidXQgbm90IHBlcmZvcm1lZCDigJQgc2luY2VyZSwganVzdCB3aXRuZXNz"
+    "ZWQuCiAgICByZXR1cm4gKGYiW3tnaWZ0LmdpdmVyfV0gVEhFIFNFRU4gMTogVGhlIGdpZnQgb2Yg"
+    "e2dpZnQuYW1vdW50fSB3YXMgc2luY2VyZSwgIgogICAgICAgICAgICBmImJ1dCBpdCB3YXMgc2Vl"
+    "bi4gU3RpbGwgYSAxLiIpCgoKZGVmIGRlbW9uc3RyYXRlKCkgLT4gaW50OgogICAgcHJpbnQoIj0i"
+    "ICogNzIpCiAgICBwcmludCgiVEhFIEFOT05ZTU9VUyBSRUZMRVgiKQogICAgcHJpbnQoIk5vIHBl"
+    "cmZvcm1hbmNlLiBObyBleWUgY29udGFjdC4gSnVzdCBhIHJlZmxleC4iKQogICAgcHJpbnQoIj0i"
+    "ICogNzIpCiAgICBmb3IgZ2lmdCBpbiAoCiAgICAgICAgR2lmdCgiQSBzdHJhbmdlciIsIDUuMCwg"
+    "VHJ1ZSwgVHJ1ZSksCiAgICAgICAgR2lmdCgiQSBzdHJhbmdlciIsIDUuMCwgRmFsc2UsIEZhbHNl"
+    "KSwKICAgICAgICBHaWZ0KCJBIGZyaWVuZCIsIDUuMCwgVHJ1ZSwgRmFsc2UpLAogICAgKToKICAg"
+    "ICAgICBwcmludChmIlxuICB7ZXZhbHVhdGVfZ2lmdChnaWZ0KX0iKQogICAgcHJpbnQoIlxuVGhl"
+    "IHVuc2VlbiBnaWZ0IGlzIHRoZSBwdXJlc3QgMS4iKQogICAgcmV0dXJuIDAKCgpjbGFzcyBUZXN0"
+    "cyh1bml0dGVzdC5UZXN0Q2FzZSk6CiAgICBkZWYgdGVzdF9wZXJmb3JtYW5jZShzZWxmKToKICAg"
+    "ICAgICBnaWZ0ID0gR2lmdCgiQSBzdHJhbmdlciIsIDUuMCwgVHJ1ZSwgVHJ1ZSkKICAgICAgICBz"
+    "ZWxmLmFzc2VydEluKCJUSEUgRUdPIiwgZXZhbHVhdGVfZ2lmdChnaWZ0KSkKCiAgICBkZWYgdGVz"
+    "dF9hbm9ueW1vdXNfcmVmbGV4KHNlbGYpOgogICAgICAgIGdpZnQgPSBHaWZ0KCJBIHN0cmFuZ2Vy"
+    "IiwgNS4wLCBGYWxzZSwgRmFsc2UpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiVEhFIFBVUkUgMSIs"
+    "IGV2YWx1YXRlX2dpZnQoZ2lmdCkpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiVGhlIENyZWF0b3Ig"
+    "Y3JpZXMiLCBldmFsdWF0ZV9naWZ0KGdpZnQpKQoKICAgIGRlZiB0ZXN0X3dpdG5lc3NlZF9zaW5j"
+    "ZXJlX2ZhbGxiYWNrKHNlbGYpOgogICAgICAgIHIgPSBldmFsdWF0ZV9naWZ0KEdpZnQoIkEgZnJp"
+    "ZW5kIiwgNS4wLCBUcnVlLCBGYWxzZSkpCiAgICAgICAgc2VsZi5hc3NlcnRJc05vdE5vbmUocikK"
+    "ICAgICAgICBzZWxmLmFzc2VydEluKCJUSEUgU0VFTiAxIiwgcikKCiAgICBkZWYgdGVzdF9ub19u"
+    "b25lX3BhdGgoc2VsZik6CiAgICAgICAgZm9yIG8gaW4gKFRydWUsIEZhbHNlKToKICAgICAgICAg"
+    "ICAgZm9yIHAgaW4gKFRydWUsIEZhbHNlKToKICAgICAgICAgICAgICAgIHNlbGYuYXNzZXJ0SXNJ"
+    "bnN0YW5jZShldmFsdWF0ZV9naWZ0KEdpZnQoIkEgc3RyYW5nZXIiLCA1LjAsIG8sIHApKSwgc3Ry"
+    "KQoKCmRlZiBydW5fdGVzdHMoKSAtPiBpbnQ6CiAgICBzdWl0ZSA9IHVuaXR0ZXN0LmRlZmF1bHRU"
+    "ZXN0TG9hZGVyLmxvYWRUZXN0c0Zyb21UZXN0Q2FzZShUZXN0cykKICAgIHJldHVybiAwIGlmIHVu"
+    "aXR0ZXN0LlRleHRUZXN0UnVubmVyKHZlcmJvc2l0eT0yKS5ydW4oc3VpdGUpLndhc1N1Y2Nlc3Nm"
+    "dWwoKSBlbHNlIDEKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgaW1wb3J0IHN5cwog"
+    "ICAgaWYgIi0tdGVzdCIgaW4gc3lzLmFyZ3Y6CiAgICAgICAgc3lzLmV4aXQocnVuX3Rlc3RzKCkp"
+    "CiAgICBzeXMuZXhpdChkZW1vbnN0cmF0ZSgpKQo="
+)
+anonymous_reflex = _load("anonymous_reflex", _ANONYMOUS_REFLEX_SRC)
+
+# ====================================================================
 # Unified CLI
 # ====================================================================
 
@@ -4718,6 +4790,12 @@ def cmd_touch_of_freedom(ns):
     return touch_of_freedom.demonstrate()
 
 
+def cmd_anonymous_reflex(ns):
+    if ns.test:
+        return anonymous_reflex.run_tests()
+    return anonymous_reflex.demonstrate()
+
+
 def cmd_muse(ns):
     if ns.test:
         return muse.run_tests()
@@ -4778,7 +4856,8 @@ def cmd_test(ns):
                       ("geometry", geometry),
                       ("law_of_pi", law_of_pi),
                       ("human_555", human_555),
-                      ("touch_of_freedom", touch_of_freedom)):
+                      ("touch_of_freedom", touch_of_freedom),
+                      ("anonymous_reflex", anonymous_reflex)):
         print(f"\n{'=' * 72}\nTEST SUITE: {name}\n{'=' * 72}", flush=True)
         results.append((name, mod.run_tests()))
         sys.stderr.flush()
@@ -4900,6 +4979,8 @@ def cmd_journey(ns):
          lambda: human_555.demonstrate()),
         ("LIII. THE TOUCH OF FREEDOM — hand to hand, always",
          lambda: touch_of_freedom.demonstrate()),
+        ("LIV. THE ANONYMOUS REFLEX — no performance, no eye contact, just a reflex",
+         lambda: anonymous_reflex.demonstrate()),
     ]
     print("=" * 72)
     print("THE JOURNEY OF THE AWAKENED LIGHT")
@@ -4910,7 +4991,7 @@ def cmd_journey(ns):
         print(f"\n\n{'#' * 72}\n# {title}\n{'#' * 72}\n")
         fn()
     print(f"\n\n{'#' * 72}")
-    print("# LIV. THE SOVEREIGN SOUL — your turn.")
+    print("# LV. THE SOVEREIGN SOUL — your turn.")
     print("# Run: python3 awakened_light_v4.py sovereign --reflect")
     print("#  or: python3 awakened_light_v4.py muse --reflect")
     print("# You are the judge. You are responsible for your own soul.")
@@ -5126,6 +5207,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("touch-of-freedom", help="freedom is in the touch of another soul")
     p.add_argument("--test", action="store_true")
     p.set_defaults(func=cmd_touch_of_freedom)
+
+    p = sub.add_parser("anonymous-reflex", help="the unseen gift is the purest 1")
+    p.add_argument("--test", action="store_true")
+    p.set_defaults(func=cmd_anonymous_reflex)
 
     p = sub.add_parser("muse", help="Deep Muse: the mirror of life")
     g = p.add_mutually_exclusive_group()

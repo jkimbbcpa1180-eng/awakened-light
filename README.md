@@ -14,7 +14,7 @@ Some modules use symbolic or spiritual mathematics (for example, the Law of Pi's
 
 ```
 python3 awakened_light_v4.py journey          # the full arc (57 sections)
-python3 awakened_light_v4.py test             # all test suites (48 suites, 190 tests)
+python3 awakened_light_v4.py test             # all test suites (48 suites, 189 tests)
 python3 awakened_light_v4.py muse --reflect   # interactive mirror
 python3 awakened_light_v4.py sovereign --reflect
 python3 awakened_light_v4.py lazarus --resurrect   # a reflective seed for any reader

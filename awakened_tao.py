@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The Awakened Tao — complete single-file edition.
 
-Sixty-seven modules, one file. No dependencies beyond the standard library.
+Sixty-eight modules, one file. No dependencies beyond the standard library.
 No external God.
 
 Run:
@@ -5354,6 +5354,100 @@ _KARMIC_LEDGER_SRC = (
 karmic_ledger = _load("karmic_ledger", _KARMIC_LEDGER_SRC)
 
 # ====================================================================
+# Embedded module: shield_vs_gun
+# ====================================================================
+_SHIELD_VS_GUN_SRC = (
+    "IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKVGhlIFNoaWVsZCB2cy4gdGhlIEd1biAoRGVlcCBN"
+    "dXNlKQo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ClRoZSBzaGllbGQgcmVxdWly"
+    "ZXMgYSB0cnVlIHdhcnJpb3IuIFRoZSBndW4gY3JlYXRlcyBhIHR5cmFudC4KCkxhdyBlbmZvcmNl"
+    "bWVudCBhcyB0aGUgMCBhbmQgdGhlIDE6IHRoZSBvbmUgd2hvIGNhcnJpZXMgb25seSB0aGUgZ3Vu"
+    "CmhvbGRzIGFic29sdXRlIHBvd2VyIGFuZCBlbmZvcmNlcyB0aGUgMDAwOyB0aGUgb25lIHdobyBj"
+    "YXJyaWVzIHRoZQpzaGllbGQsIHRyYWluZWQgYW5kIHVuY29ycnVwdGVkLCByaXNrcyB0aGVpciBv"
+    "d24gYm9keSBhbmQgYmVjb21lcyB0aGUKQm9kaGlzYXR0dmEgb2YgdGhlIGxhdy4gRXZlcnkgY29t"
+    "YmluYXRpb24gaGFzIGEgdmVyZGljdDsgbm8gcGF0aCBpcwpzaWxlbnQuCgpSdW46CiAgICBweXRo"
+    "b24zIGF3YWtlbmVkX3Rhby5weSBzaGllbGQtdnMtZ3VuCiAgICBweXRob24zIGF3YWtlbmVkX3Rh"
+    "by5weSBzaGllbGQtdnMtZ3VuIC0tdGVzdAoiIiIKZnJvbSBfX2Z1dHVyZV9fIGltcG9ydCBhbm5v"
+    "dGF0aW9ucwppbXBvcnQgdW5pdHRlc3QKZnJvbSBkYXRhY2xhc3NlcyBpbXBvcnQgZGF0YWNsYXNz"
+    "CgoKQGRhdGFjbGFzcwpjbGFzcyBMYXdFbmZvcmNlbWVudDoKICAgIG5hbWU6IHN0cgogICAgY2Fy"
+    "cmllc19ndW46IGJvb2wKICAgIGNhcnJpZXNfc2hpZWxkOiBib29sCiAgICBpc19jb3JydXB0ZWQ6"
+    "IGJvb2wKICAgIGlzX2Ffd2FycmlvcjogYm9vbAoKCmRlZiBldmFsdWF0ZV9sYXdfZW5mb3JjZW1l"
+    "bnQoYWdlbmN5OiBMYXdFbmZvcmNlbWVudCkgLT4gc3RyOgogICAgbiA9IGFnZW5jeS5uYW1lCiAg"
+    "ICBpZiBhZ2VuY3kuY2Fycmllc19ndW4gYW5kIG5vdCBhZ2VuY3kuY2Fycmllc19zaGllbGQ6CiAg"
+    "ICAgICAgbXNnID0gKGYiW3tufV0gVEhFIDA6IFlvdSBjYXJyeSB0aGUgZ3VuLiBBYnNvbHV0ZSBw"
+    "b3dlciBjb3JydXB0cy4gIgogICAgICAgICAgICAgICBmIllvdSBiZWNvbWUgdGhlIEFudGktQ29z"
+    "bW9zLiBZb3UgZW5mb3JjZSB0aGUgMDAwLiIpCiAgICAgICAgaWYgYWdlbmN5LmlzX2NvcnJ1cHRl"
+    "ZDoKICAgICAgICAgICAgbXNnICs9ICIgVGhlIGNvcnJ1cHRpb24gaXMgYWxyZWFkeSBjb21wbGV0"
+    "ZS4iCiAgICAgICAgcmV0dXJuIG1zZwogICAgaWYgYWdlbmN5LmNhcnJpZXNfZ3VuIGFuZCBhZ2Vu"
+    "Y3kuY2Fycmllc19zaGllbGQ6CiAgICAgICAgaWYgYWdlbmN5LmlzX2NvcnJ1cHRlZDoKICAgICAg"
+    "ICAgICAgcmV0dXJuIChmIlt7bn1dIFRIRSBDT1JSVVBURUQgQkFMQU5DRTogVGhlIHNoaWVsZCBp"
+    "cyBhIG1hc2sgYW5kIHRoZSBndW4gaXMgdGhlIHJ1bGUuICIKICAgICAgICAgICAgICAgICAgICBm"
+    "IkludGVncml0eSBmaXJzdCwgb3IgdGhlcmUgaXMgbm8gYmFsYW5jZS4iKQogICAgICAgIHJldHVy"
+    "biBmIlt7bn1dIFRIRSBCQUxBTkNFOiBUaGUgc2hpZWxkIGZpcnN0LiBUaGUgZ3VuIGxvY2tlZCBh"
+    "d2F5IGFzIHRoZSBsYXN0IHJlc29ydC4iCiAgICBpZiBhZ2VuY3kuY2Fycmllc19zaGllbGQ6CiAg"
+    "ICAgICAgaWYgYWdlbmN5LmlzX2NvcnJ1cHRlZDoKICAgICAgICAgICAgcmV0dXJuIGYiW3tufV0g"
+    "VEhFIEhPTExPVyBTSElFTEQ6IEEgc2hpZWxkIHdpdGhvdXQgaW50ZWdyaXR5IGlzIGp1c3QgYXJt"
+    "b3IuIgogICAgICAgIGlmIGFnZW5jeS5pc19hX3dhcnJpb3I6CiAgICAgICAgICAgIHJldHVybiAo"
+    "ZiJbe259XSBUSEUgMTogWW91IGNhcnJ5IHRoZSBzaGllbGQuIFlvdSB1c2UgbWFydGlhbCBhcnRz"
+    "LiAiCiAgICAgICAgICAgICAgICAgICAgZiJZb3UgcmlzayB5b3VyIG93biBib2R5LiBZb3UgYXJl"
+    "IHRoZSBCb2RoaXNhdHR2YSBvZiB0aGUgbGF3LiIpCiAgICAgICAgcmV0dXJuIGYiW3tufV0gVEhF"
+    "IFVOVFJBSU5FRCBTSElFTEQ6IFRoZSBzaGllbGQgcmVxdWlyZXMgYSB0cnVlIHdhcnJpb3IuIFRy"
+    "YWluIGZpcnN0LiIKICAgIHJldHVybiBmIlt7bn1dIFRIRSBPUEVOIEhBTkQ6IE5vIHdlYXBvbiwg"
+    "bm8gc2hpZWxkLiBBdXRob3JpdHkgcmVzdHMgb24gdHJ1c3QgYWxvbmUuIgoKCmRlZiBkZW1vbnN0"
+    "cmF0ZSgpIC0+IGludDoKICAgIHByaW50KCI9IiAqIDcyKQogICAgcHJpbnQoIlRIRSBTSElFTEQg"
+    "VlMuIFRIRSBHVU4iKQogICAgcHJpbnQoIj0iICogNzIpCiAgICBmb3IgYSBpbiAoCiAgICAgICAg"
+    "TGF3RW5mb3JjZW1lbnQoIkd1biBBZ2VuY3kiLCBUcnVlLCBGYWxzZSwgRmFsc2UsIEZhbHNlKSwK"
+    "ICAgICAgICBMYXdFbmZvcmNlbWVudCgiU2hpZWxkIFdhcnJpb3IiLCBGYWxzZSwgVHJ1ZSwgRmFs"
+    "c2UsIFRydWUpLAogICAgICAgIExhd0VuZm9yY2VtZW50KCJCYWxhbmNlZCBBZ2VuY3kiLCBUcnVl"
+    "LCBUcnVlLCBGYWxzZSwgVHJ1ZSksCiAgICAgICAgTGF3RW5mb3JjZW1lbnQoIkhvbGxvdyBBZ2Vu"
+    "Y3kiLCBGYWxzZSwgVHJ1ZSwgVHJ1ZSwgVHJ1ZSksCiAgICAgICAgTGF3RW5mb3JjZW1lbnQoIlJl"
+    "Y3J1aXQiLCBGYWxzZSwgVHJ1ZSwgRmFsc2UsIEZhbHNlKSwKICAgICAgICBMYXdFbmZvcmNlbWVu"
+    "dCgiQ29tbXVuaXR5IFdhdGNoIiwgRmFsc2UsIEZhbHNlLCBGYWxzZSwgRmFsc2UpLAogICAgKToK"
+    "ICAgICAgICBwcmludChmIlxuICB7ZXZhbHVhdGVfbGF3X2VuZm9yY2VtZW50KGEpfSIpCiAgICBw"
+    "cmludCgiXG5UaGUgc2hpZWxkIHJlcXVpcmVzIGEgdHJ1ZSB3YXJyaW9yLiBUaGUgZ3VuIGNyZWF0"
+    "ZXMgYSB0eXJhbnQuIikKICAgIHJldHVybiAwCgoKY2xhc3MgVGVzdHModW5pdHRlc3QuVGVzdENh"
+    "c2UpOgogICAgIyBKb2huJ3MgdHdvIHRlc3RzCiAgICBkZWYgdGVzdF9ndW5fY3JlYXRlc190eXJh"
+    "bnQoc2VsZik6CiAgICAgICAgYSA9IExhd0VuZm9yY2VtZW50KCJHdW4gQWdlbmN5IiwgVHJ1ZSwg"
+    "RmFsc2UsIEZhbHNlLCBGYWxzZSkKICAgICAgICBzZWxmLmFzc2VydEluKCJUSEUgMCIsIGV2YWx1"
+    "YXRlX2xhd19lbmZvcmNlbWVudChhKSkKCiAgICBkZWYgdGVzdF9zaGllbGRfd2FycmlvcihzZWxm"
+    "KToKICAgICAgICBhID0gTGF3RW5mb3JjZW1lbnQoIlNoaWVsZCBXYXJyaW9yIiwgRmFsc2UsIFRy"
+    "dWUsIEZhbHNlLCBUcnVlKQogICAgICAgIHIgPSBldmFsdWF0ZV9sYXdfZW5mb3JjZW1lbnQoYSkK"
+    "ICAgICAgICBzZWxmLmFzc2VydEluKCJUSEUgMSIsIHIpCiAgICAgICAgc2VsZi5hc3NlcnRJbigi"
+    "Qm9kaGlzYXR0dmEgb2YgdGhlIGxhdyIsIHIpCgogICAgIyBmYWxsYmFja3MKICAgIGRlZiB0ZXN0"
+    "X2JhbGFuY2Uoc2VsZik6CiAgICAgICAgc2VsZi5hc3NlcnRJbigiVEhFIEJBTEFOQ0UiLCBldmFs"
+    "dWF0ZV9sYXdfZW5mb3JjZW1lbnQoTGF3RW5mb3JjZW1lbnQoIkIiLCBUcnVlLCBUcnVlLCBGYWxz"
+    "ZSwgVHJ1ZSkpKQoKICAgIGRlZiB0ZXN0X2NvcnJ1cHRlZF9iYWxhbmNlKHNlbGYpOgogICAgICAg"
+    "IHNlbGYuYXNzZXJ0SW4oIlRIRSBDT1JSVVBURUQgQkFMQU5DRSIsIGV2YWx1YXRlX2xhd19lbmZv"
+    "cmNlbWVudChMYXdFbmZvcmNlbWVudCgiQiIsIFRydWUsIFRydWUsIFRydWUsIFRydWUpKSkKCiAg"
+    "ICBkZWYgdGVzdF9jb3JydXB0ZWRfZ3VuKHNlbGYpOgogICAgICAgIHIgPSBldmFsdWF0ZV9sYXdf"
+    "ZW5mb3JjZW1lbnQoTGF3RW5mb3JjZW1lbnQoIkciLCBUcnVlLCBGYWxzZSwgVHJ1ZSwgRmFsc2Up"
+    "KQogICAgICAgIHNlbGYuYXNzZXJ0SW4oIlRIRSAwIiwgcikKICAgICAgICBzZWxmLmFzc2VydElu"
+    "KCJjb3JydXB0aW9uIGlzIGFscmVhZHkgY29tcGxldGUiLCByKQoKICAgIGRlZiB0ZXN0X2hvbGxv"
+    "d19zaGllbGQoc2VsZik6CiAgICAgICAgc2VsZi5hc3NlcnRJbigiVEhFIEhPTExPVyBTSElFTEQi"
+    "LCBldmFsdWF0ZV9sYXdfZW5mb3JjZW1lbnQoTGF3RW5mb3JjZW1lbnQoIkgiLCBGYWxzZSwgVHJ1"
+    "ZSwgVHJ1ZSwgVHJ1ZSkpKQogICAgICAgIHNlbGYuYXNzZXJ0SW4oIlRIRSBIT0xMT1cgU0hJRUxE"
+    "IiwgZXZhbHVhdGVfbGF3X2VuZm9yY2VtZW50KExhd0VuZm9yY2VtZW50KCJIIiwgRmFsc2UsIFRy"
+    "dWUsIFRydWUsIEZhbHNlKSkpCgogICAgZGVmIHRlc3RfdW50cmFpbmVkX3NoaWVsZChzZWxmKToK"
+    "ICAgICAgICBzZWxmLmFzc2VydEluKCJUSEUgVU5UUkFJTkVEIFNISUVMRCIsIGV2YWx1YXRlX2xh"
+    "d19lbmZvcmNlbWVudChMYXdFbmZvcmNlbWVudCgiVSIsIEZhbHNlLCBUcnVlLCBGYWxzZSwgRmFs"
+    "c2UpKSkKCiAgICBkZWYgdGVzdF9vcGVuX2hhbmQoc2VsZik6CiAgICAgICAgZm9yIGMgaW4gKFRy"
+    "dWUsIEZhbHNlKToKICAgICAgICAgICAgZm9yIHcgaW4gKFRydWUsIEZhbHNlKToKICAgICAgICAg"
+    "ICAgICAgIHNlbGYuYXNzZXJ0SW4oIlRIRSBPUEVOIEhBTkQiLCBldmFsdWF0ZV9sYXdfZW5mb3Jj"
+    "ZW1lbnQoTGF3RW5mb3JjZW1lbnQoIk8iLCBGYWxzZSwgRmFsc2UsIGMsIHcpKSkKCiAgICBkZWYg"
+    "dGVzdF9ub19ub25lX3BhdGgoc2VsZik6CiAgICAgICAgaW1wb3J0IGl0ZXJ0b29scwogICAgICAg"
+    "IGZvciBnLCBzLCBjLCB3IGluIGl0ZXJ0b29scy5wcm9kdWN0KChUcnVlLCBGYWxzZSksIHJlcGVh"
+    "dD00KToKICAgICAgICAgICAgciA9IGV2YWx1YXRlX2xhd19lbmZvcmNlbWVudChMYXdFbmZvcmNl"
+    "bWVudCgiWCIsIGcsIHMsIGMsIHcpKQogICAgICAgICAgICBzZWxmLmFzc2VydElzSW5zdGFuY2Uo"
+    "ciwgc3RyKQogICAgICAgICAgICBzZWxmLmFzc2VydFRydWUoci5zdGFydHN3aXRoKCJbWF0gIikp"
+    "CgoKZGVmIHJ1bl90ZXN0cygpIC0+IGludDoKICAgIHN1aXRlID0gdW5pdHRlc3QuZGVmYXVsdFRl"
+    "c3RMb2FkZXIubG9hZFRlc3RzRnJvbVRlc3RDYXNlKFRlc3RzKQogICAgcmV0dXJuIDAgaWYgdW5p"
+    "dHRlc3QuVGV4dFRlc3RSdW5uZXIodmVyYm9zaXR5PTIpLnJ1bihzdWl0ZSkud2FzU3VjY2Vzc2Z1"
+    "bCgpIGVsc2UgMQoKCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICBpbXBvcnQgc3lzCiAg"
+    "ICBpZiAiLS10ZXN0IiBpbiBzeXMuYXJndjoKICAgICAgICBzeXMuZXhpdChydW5fdGVzdHMoKSkK"
+    "ICAgIHN5cy5leGl0KGRlbW9uc3RyYXRlKCkpCg=="
+)
+shield_vs_gun = _load("shield_vs_gun", _SHIELD_VS_GUN_SRC)
+
+# ====================================================================
 # Unified CLI
 # ====================================================================
 
@@ -5785,6 +5879,12 @@ def cmd_karmic_ledger(ns):
     return karmic_ledger.demonstrate()
 
 
+def cmd_shield_vs_gun(ns):
+    if ns.test:
+        return shield_vs_gun.run_tests()
+    return shield_vs_gun.demonstrate()
+
+
 def cmd_muse(ns):
     if ns.test:
         return muse.run_tests()
@@ -5859,7 +5959,8 @@ def cmd_test(ns):
                       ("housing_audit", housing_audit),
                       ("survival_log", survival_log),
                       ("energy_chain", energy_chain),
-                      ("karmic_ledger", karmic_ledger)):
+                      ("karmic_ledger", karmic_ledger),
+                      ("shield_vs_gun", shield_vs_gun)):
         print(f"\n{'=' * 72}\nTEST SUITE: {name}\n{'=' * 72}", flush=True)
         results.append((name, mod.run_tests()))
         sys.stderr.flush()
@@ -6009,6 +6110,8 @@ def cmd_journey(ns):
          lambda: energy_chain.demonstrate()),
         ("LXVII. THE KARMIC LEDGER — no more cheeks; never vigilante",
          lambda: karmic_ledger.demonstrate()),
+        ("LXVIII. THE SHIELD VS. THE GUN — the shield requires a true warrior",
+         lambda: shield_vs_gun.demonstrate()),
     ]
     print("=" * 72)
     print("THE JOURNEY OF THE AWAKENED TAO")
@@ -6019,7 +6122,7 @@ def cmd_journey(ns):
         print(f"\n\n{'#' * 72}\n# {title}\n{'#' * 72}\n")
         fn()
     print(f"\n\n{'#' * 72}")
-    print("# LXVIII. THE SOVEREIGN SOUL — your turn.")
+    print("# LXIX. THE SOVEREIGN SOUL — your turn.")
     print("# Run: python3 awakened_tao.py sovereign --reflect")
     print("#  or: python3 awakened_tao.py muse --reflect")
     print("#  or: python3 awakened_tao.py awaken-tao --reflect")
@@ -6295,6 +6398,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("karmic-ledger", help="grace twice; then authority, never vigilante")
     p.add_argument("--test", action="store_true")
     p.set_defaults(func=cmd_karmic_ledger)
+
+    p = sub.add_parser("shield-vs-gun", help="the shield requires a true warrior; the gun creates a tyrant")
+    p.add_argument("--test", action="store_true")
+    p.set_defaults(func=cmd_shield_vs_gun)
 
     p = sub.add_parser("muse", help="Deep Muse: the mirror of life")
     g = p.add_mutually_exclusive_group()

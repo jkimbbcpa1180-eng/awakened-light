@@ -1,20 +1,20 @@
 # The Awakened Tao
 
-A single-file, standard-library-only Python program of theological software: sixty-eight embedded modules that trace one arc from comparison of traditions to self-judgment. No external God; the soul judges itself.
+A single-file, standard-library-only Python program of theological software: sixty-nine embedded modules that trace one arc from comparison of traditions to self-judgment. No external God; the soul judges itself.
 
-Modules: synthesis, knowledge, suffering, weighing, cycle, threshold, judge, grace, mirror, integrity, awakening, quantum, sovereign, energy, effortless, sink, uncertainty, surprise, awe, chaos, purgatory, fairness, prism, tears, tiniest_light, wormhole, creation, collective_mind, living_god, touch_of_light, hunters_prayer, chain, apple, ai_companion, bleed, creator_tears, coexistence, nile, eternal_soul, sunrise, muse, eternal_echo, grace_of_tomorrow, symphony, perfection, true_love, agi_revelation, infinite_reflection, infinite_puzzle, geometry, law_of_pi, human_555, touch_of_freedom, anonymous_reflex, just_to_be, lazarus, friend, it_happened, time_machine, fusion, awaken_tao, earn_rest, creators_tears, housing_audit, survival_log, energy_chain, karmic_ledger, shield_vs_gun.
+Modules: synthesis, knowledge, suffering, weighing, cycle, threshold, judge, grace, mirror, integrity, awakening, quantum, sovereign, energy, effortless, sink, uncertainty, surprise, awe, chaos, purgatory, fairness, prism, tears, tiniest_light, wormhole, creation, collective_mind, living_god, touch_of_light, hunters_prayer, chain, apple, ai_companion, bleed, creator_tears, coexistence, nile, eternal_soul, sunrise, muse, eternal_echo, grace_of_tomorrow, symphony, perfection, true_love, agi_revelation, infinite_reflection, infinite_puzzle, geometry, law_of_pi, human_555, touch_of_freedom, anonymous_reflex, just_to_be, lazarus, friend, it_happened, time_machine, fusion, awaken_tao, earn_rest, creators_tears, housing_audit, survival_log, energy_chain, karmic_ledger, shield_vs_gun, bare_arms.
 
 Deep Muse, the mirror of life, closes with one commandment:
 
 > Take responsibility for your actions, as equal and opposite reactions depend on the source where energy is produced.
 
-Honesty note: housing-audit uses example numbers only; energy-chain is illustrative, not an engineering model; Pi x Pi = 0 is symbolic, not arithmetic (pi x pi is about 9.87).
+Honesty note: housing-audit uses example numbers only; energy-chain is illustrative, not an engineering model; Pi x Pi = 0 is symbolic, not arithmetic (pi x pi is about 9.87); bare-arms is wordplay and satire, not legal interpretation.
 
 ## Run
 
 ```
-python3 awakened_tao.py journey               # the full arc (69 sections)
-python3 awakened_tao.py test                  # all test suites (60 suites, 244 tests)
+python3 awakened_tao.py journey               # the full arc (70 sections)
+python3 awakened_tao.py test                  # all test suites (61 suites, 251 tests)
 python3 awakened_tao.py muse --reflect        # interactive mirror
 python3 awakened_tao.py sovereign --reflect
 python3 awakened_tao.py earn-rest --reflect   # comfort or earned?
@@ -22,6 +22,7 @@ python3 awakened_tao.py awaken-tao --reflect  # interactive Awaken Tao
 python3 awakened_tao.py lazarus --resurrect   # a reflective seed for any reader
 python3 awakened_tao.py energy-chain          # 500 MW in, 76 MW out
 python3 awakened_tao.py shield-vs-gun         # the shield requires a true warrior
+python3 awakened_tao.py bare-arms             # wordplay: bear bare arms
 python3 awakened_tao.py --help                # all commands
 ```
 

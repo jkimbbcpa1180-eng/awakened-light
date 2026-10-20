@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The Awakened Tao — complete single-file edition.
 
-Sixty-nine modules, one file. No dependencies beyond the standard library.
+Seventy modules, one file. No dependencies beyond the standard library.
 No external God.
 
 Run:
@@ -5520,6 +5520,119 @@ _BARE_ARMS_SRC = (
 bare_arms = _load("bare_arms", _BARE_ARMS_SRC)
 
 # ====================================================================
+# Embedded module: swords_into_shields
+# ====================================================================
+_SWORDS_INTO_SHIELDS_SRC = (
+    "IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKU3dvcmRzIGludG8gU2hpZWxkcyAoRGVlcCBNdXNl"
+    "KQo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiJUaGV5IHNoYWxsIGJlYXQgdGhlaXIg"
+    "c3dvcmRzIGludG8gcGxvd3NoYXJlcyIgKElzYWlhaCAyOjQpLgpXZSBiZWF0IG91ciBndW5zIGlu"
+    "dG8gc2hpZWxkcy4KCk1lbHQgdGhlIGd1bnMuIFdoYXQgY29tZXMgb3V0IGlzIHJlY3ljbGVkIHN0"
+    "ZWVsIGFuZCBhbHVtaW51bSwgbm90CnRpdGFuaXVtOiB0aXRhbml1bSBpcyBhIHNlcGFyYXRlIGVs"
+    "ZW1lbnQsIGFuZCBzdGVlbCBjYW5ub3QgYmUgYWxsb3llZAppbnRvIGl0LiBUaGUgc3RlZWwgY2Fu"
+    "IGJlY29tZSBhIHNoaWVsZC4KClNBRkVUWSBOT1RFOiB0aGlzIGlzIHBoaWxvc29waHkgYW5kIGls"
+    "bHVzdHJhdGl2ZSBtYXRoLCBub3QgYXJtb3IKZW5naW5lZXJpbmcgb3IgY2VydGlmaWNhdGlvbi4g"
+    "RXZlcnkgbWFzcyBhbmQgcmF0aW5nIGJlbG93IGlzIGEgcm91Z2gsCmFwcHJveGltYXRlIGV4YW1w"
+    "bGUgYW5kIGhhcyBub3QgYmVlbiBjaGVja2VkLiBSZWFsIHByb3RlY3RpdmUgYXJtb3IgbXVzdApi"
+    "ZSBkZXNpZ25lZCwgdGVzdGVkIGFuZCBjZXJ0aWZpZWQgYnkgcXVhbGlmaWVkIHBlb3BsZSB0byB0"
+    "aGUgYWN0dWFsCnN0YW5kYXJkLgoKRXhhbXBsZSBtYXNzZXMgKGlsbHVzdHJhdGl2ZSBvbmx5KToK"
+    "ICAtIHJpZmxlICAgIH4zLjAga2cgb2Ygc3RlZWwtZXF1aXZhbGVudAogIC0gaGFuZGd1biAgfjAu"
+    "NyBrZyBvZiBzdGVlbC1lcXVpdmFsZW50CiAgLSBvbmUgc3RlZWwgc2hpZWxkIH45IGtnICh+MjAg"
+    "bGIpIG9mIHN0ZWVsCgpOSUotc3R5bGUgbG9va3VwIChhcHByb3hpbWF0ZSwgbm90IGNoZWNrZWQp"
+    "OgogIC0gTGV2ZWwgSUlJQSwgaGFuZGd1biByb3VuZHM6IHNvZnQgb3IgbGlnaHQgaGFyZCBhcm1v"
+    "cgogIC0gTGV2ZWwgSUlJLCBvcmRpbmFyeSByaWZsZSByb3VuZHM6IGhhcmRlbmVkIGFybW9yIHN0"
+    "ZWVsIGFib3V0IDYtMTIgbW0sCiAgICByb3VnaGx5IDEwLTI1IGxiIHNoaWVsZAogIC0gTGV2ZWwg"
+    "SVYsIGFybW9yLXBpZXJjaW5nIHJpZmxlOiBzdGVlbCBhbG9uZSBpcyB0b28gaGVhdnk7IGNlcmFt"
+    "aWMgb3ZlcgogICAgcG9seWV0aHlsZW5lLCByb3VnaGx5IDMwLTUwIGxiCgpSdW46CiAgICBweXRo"
+    "b24zIGF3YWtlbmVkX3Rhby5weSBzd29yZHMtaW50by1zaGllbGRzCiAgICBweXRob24zIGF3YWtl"
+    "bmVkX3Rhby5weSBzd29yZHMtaW50by1zaGllbGRzIC0tdGVzdAoiIiIKZnJvbSBfX2Z1dHVyZV9f"
+    "IGltcG9ydCBhbm5vdGF0aW9ucwppbXBvcnQgdW5pdHRlc3QKClJJRkxFX0tHID0gMy4wICAgICAg"
+    "ICAgICMgaWxsdXN0cmF0aXZlCkhBTkRHVU5fS0cgPSAwLjcgICAgICAgICMgaWxsdXN0cmF0aXZl"
+    "ClNISUVMRF9TVEVFTF9LRyA9IDkuMCAgICMgaWxsdXN0cmF0aXZlICh+MjAgbGIpCkhFQVZZX0xC"
+    "ID0gMjAuMCAgICAgICAgICMgYWJvdmUgdGhpcywgYW4gdW50cmFpbmVkIGJvZHkgc3RydWdnbGVz"
+    "IChpbGx1c3RyYXRpdmUpCgpMRVZFTFMgPSB7ICAjIGFwcHJveGltYXRlLCBub3QgY2hlY2tlZAog"
+    "ICAgInJpZmxlIjogKCJMZXZlbCBJSUkiLCAiaGFyZGVuZWQgYXJtb3Igc3RlZWwsIGFib3V0IDYt"
+    "MTIgbW0gKGFwcHJveC4pIiwgInJvdWdobHkgMTAtMjUgbGIiKSwKICAgICJhcm1vci1waWVyY2lu"
+    "ZyI6ICgiTGV2ZWwgSVYiLCAiY2VyYW1pYyBvdmVyIHBvbHlldGh5bGVuZTsgc3RlZWwgYWxvbmUg"
+    "aXMgdG9vIGhlYXZ5IChhcHByb3guKSIsICJyb3VnaGx5IDMwLTUwIGxiIiksCiAgICAiaGFuZGd1"
+    "biI6ICgiTGV2ZWwgSUlJQSIsICJzb2Z0IG9yIGxpZ2h0IGhhcmQgYXJtb3IgZm9yIGhhbmRndW4g"
+    "cm91bmRzIChhcHByb3guKSIsICJsaWdodCIpLAp9CgoKZGVmIG1lbHQocmlmbGVzOiBpbnQsIGhh"
+    "bmRndW5zOiBpbnQpIC0+IGRpY3Q6CiAgICAiIiJFc3RpbWF0ZSByZWN5Y2xlZCBzdGVlbCBhbmQg"
+    "c2hpZWxkcy4gQmFkIG9yIG5lZ2F0aXZlIGNvdW50cyBjb3VudCBhcyAwLiIiIgogICAgZGVmIGNs"
+    "ZWFuKHgpOgogICAgICAgIHRyeToKICAgICAgICAgICAgeCA9IGludCh4KQogICAgICAgIGV4Y2Vw"
+    "dCAoVHlwZUVycm9yLCBWYWx1ZUVycm9yKToKICAgICAgICAgICAgcmV0dXJuIDAKICAgICAgICBy"
+    "ZXR1cm4gbWF4KHgsIDApCiAgICByLCBoID0gY2xlYW4ocmlmbGVzKSwgY2xlYW4oaGFuZGd1bnMp"
+    "CiAgICBzdGVlbF9rZyA9IHIgKiBSSUZMRV9LRyArIGggKiBIQU5ER1VOX0tHCiAgICByZXR1cm4g"
+    "eyJyaWZsZXMiOiByLCAiaGFuZGd1bnMiOiBoLCAic3RlZWxfa2ciOiBzdGVlbF9rZywKICAgICAg"
+    "ICAgICAgInNoaWVsZHMiOiBpbnQoc3RlZWxfa2cgLy8gU0hJRUxEX1NURUVMX0tHKSwKICAgICAg"
+    "ICAgICAgIm5vdGUiOiAiaWxsdXN0cmF0aXZlIGVzdGltYXRlOyByZWN5Y2xlZCBzdGVlbCBhbmQg"
+    "YWx1bWludW0sIG5vdCB0aXRhbml1bSJ9CgoKZGVmIHNoaWVsZF9mb3IodGhyZWF0KSAtPiBzdHI6"
+    "CiAgICBrZXkgPSBzdHIodGhyZWF0KS5zdHJpcCgpLmxvd2VyKCkucmVwbGFjZSgiICIsICItIikK"
+    "ICAgIGlmIGtleSBpbiAoImFwIiwgImFybW9yLXBpZXJjaW5nLXJpZmxlIik6CiAgICAgICAga2V5"
+    "ID0gImFybW9yLXBpZXJjaW5nIgogICAgaWYga2V5IGluICgicmlmbGUiLCAiYXJtb3ItcGllcmNp"
+    "bmciKToKICAgICAgICBsZXZlbCwgbWF0ZXJpYWwsIHdlaWdodCA9IExFVkVMU1trZXldCiAgICAg"
+    "ICAgcmV0dXJuIGYie2xldmVsfToge21hdGVyaWFsfSwge3dlaWdodH0gc2hpZWxkLiIKICAgIGxl"
+    "dmVsLCBtYXRlcmlhbCwgd2VpZ2h0ID0gTEVWRUxTWyJoYW5kZ3VuIl0KICAgIHByZWZpeCA9ICIi"
+    "IGlmIGtleSA9PSAiaGFuZGd1biIgZWxzZSBmIlVua25vd24gdGhyZWF0ICd7dGhyZWF0fSc6IGRl"
+    "ZmF1bHRpbmcgdG8gIgogICAgcmV0dXJuIGYie3ByZWZpeH17bGV2ZWx9OiB7bWF0ZXJpYWx9LiBD"
+    "b25maXJtIHRoZSByZWFsIHRocmVhdCBiZWZvcmUgcmVseWluZyBvbiBpdC4iCgoKZGVmIGNhcnJ5"
+    "X2NoZWNrKG9mZmljZXJfZml0LCBzaGllbGRfbGIpIC0+IHN0cjoKICAgIHRyeToKICAgICAgICBs"
+    "YiA9IGZsb2F0KHNoaWVsZF9sYikKICAgIGV4Y2VwdCAoVHlwZUVycm9yLCBWYWx1ZUVycm9yKToK"
+    "ICAgICAgICBsYiA9IC0xLjAKICAgIGlmIGxiIDwgMDoKICAgICAgICByZXR1cm4gIlRIRSBVTktO"
+    "T1dOIFNISUVMRDogVGhlIHdlaWdodCBpcyB1bmtub3duLiBXZWlnaCB0aGUgc2hpZWxkIGJlZm9y"
+    "ZSB5b3UgY2FycnkgaXQuIgogICAgaWYgb2ZmaWNlcl9maXQ6CiAgICAgICAgcmV0dXJuICJUSEUg"
+    "MTogVGhlIHdhcnJpb3IgY2FycmllcyB0aGUgc2hpZWxkLiIKICAgIGlmIGxiID4gSEVBVllfTEI6"
+    "CiAgICAgICAgcmV0dXJuICJUSEUgMDogVGhlIHNoaWVsZCBpcyB0b28gaGVhdnkgZm9yIGFuIHVu"
+    "dHJhaW5lZCBib2R5LiBUcmFpbiBmaXJzdC4iCiAgICByZXR1cm4gIlRIRSBMSUdIVCBTVEFSVDog"
+    "Q2FycnkgdGhlIGxpZ2h0ZXIgc2hpZWxkIHdoaWxlIHlvdSB0cmFpbiB0b3dhcmQgdGhlIGhlYXZp"
+    "ZXIgb25lLiIKCgpkZWYgZGVtb25zdHJhdGUoKSAtPiBpbnQ6CiAgICBwcmludCgiPSIgKiA3MikK"
+    "ICAgIHByaW50KCJTV09SRFMgSU5UTyBTSElFTERTIChpbGx1c3RyYXRpdmU7IG5vdCBhcm1vciBl"
+    "bmdpbmVlcmluZykiKQogICAgcHJpbnQoIj0iICogNzIpCiAgICBtID0gbWVsdCgxMDAsIDIwMCkK"
+    "ICAgIHByaW50KGYiXG4gIE1lbHQge21bJ3JpZmxlcyddfSByaWZsZXMgKyB7bVsnaGFuZGd1bnMn"
+    "XX0gaGFuZGd1bnMgLT4gfnttWydzdGVlbF9rZyddOi4wZn0ga2cgcmVjeWNsZWQgc3RlZWwiCiAg"
+    "ICAgICAgICBmIiAtPiB+e21bJ3NoaWVsZHMnXX0gc2hpZWxkcyAoe21bJ25vdGUnXX0pLiIpCiAg"
+    "ICBmb3IgdCBpbiAoInJpZmxlIiwgImFybW9yLXBpZXJjaW5nIiwgImhhbmRndW4iLCAidW5rbm93"
+    "biIpOgogICAgICAgIHByaW50KGYiICB7dH06IHtzaGllbGRfZm9yKHQpfSIpCiAgICBmb3IgZml0"
+    "LCBsYiBpbiAoKFRydWUsIDIyKSwgKEZhbHNlLCA0MCksIChGYWxzZSwgMTIpKToKICAgICAgICBw"
+    "cmludChmIiAgZml0PXtmaXR9LCB7bGJ9IGxiOiB7Y2FycnlfY2hlY2soZml0LCBsYil9IikKICAg"
+    "IHByaW50KCJcblRoZXkgc2hhbGwgYmVhdCB0aGVpciBzd29yZHMgaW50byBwbG93c2hhcmVzLiBX"
+    "ZSBiZWF0IG91ciBndW5zIGludG8gc2hpZWxkcy4iKQogICAgcmV0dXJuIDAKCgpjbGFzcyBUZXN0"
+    "cyh1bml0dGVzdC5UZXN0Q2FzZSk6CiAgICBkZWYgdGVzdF9tZWx0KHNlbGYpOgogICAgICAgIG0g"
+    "PSBtZWx0KDEwMCwgMjAwKQogICAgICAgIHNlbGYuYXNzZXJ0QWxtb3N0RXF1YWwobVsic3RlZWxf"
+    "a2ciXSwgNDQwLjApCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbChtWyJzaGllbGRzIl0sIDQ4KQog"
+    "ICAgICAgIHNlbGYuYXNzZXJ0SW4oIm5vdCB0aXRhbml1bSIsIG1bIm5vdGUiXSkKCiAgICBkZWYg"
+    "dGVzdF9tZWx0X2JhZF9jb3VudHMoc2VsZik6CiAgICAgICAgbSA9IG1lbHQoLTUsICJtYW55IikK"
+    "ICAgICAgICBzZWxmLmFzc2VydEVxdWFsKChtWyJzdGVlbF9rZyJdLCBtWyJzaGllbGRzIl0pLCAo"
+    "MC4wLCAwKSkKCiAgICBkZWYgdGVzdF9sZXZlbHMoc2VsZik6CiAgICAgICAgc2VsZi5hc3NlcnRJ"
+    "bigiTGV2ZWwgSUlJOiIsIHNoaWVsZF9mb3IoInJpZmxlIikpCiAgICAgICAgc2VsZi5hc3NlcnRJ"
+    "bigiY2VyYW1pYyBvdmVyIHBvbHlldGh5bGVuZSIsIHNoaWVsZF9mb3IoImFybW9yLXBpZXJjaW5n"
+    "IikpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiTGV2ZWwgSVYiLCBzaGllbGRfZm9yKCJBUCIpKQoK"
+    "ICAgIGRlZiB0ZXN0X2hhbmRndW5fYW5kX3Vua25vd25fZmFsbGJhY2soc2VsZik6CiAgICAgICAg"
+    "c2VsZi5hc3NlcnRUcnVlKHNoaWVsZF9mb3IoImhhbmRndW4iKS5zdGFydHN3aXRoKCJMZXZlbCBJ"
+    "SUlBIikpCiAgICAgICAgciA9IHNoaWVsZF9mb3IoImxhc2VyIikKICAgICAgICBzZWxmLmFzc2Vy"
+    "dEluKCJVbmtub3duIHRocmVhdCIsIHIpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiTGV2ZWwgSUlJ"
+    "QSIsIHIpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiTGV2ZWwgSUlJQSIsIHNoaWVsZF9mb3IoTm9u"
+    "ZSkpCgogICAgZGVmIHRlc3RfY2Fycnkoc2VsZik6CiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbChj"
+    "YXJyeV9jaGVjayhUcnVlLCA0MCksICJUSEUgMTogVGhlIHdhcnJpb3IgY2FycmllcyB0aGUgc2hp"
+    "ZWxkLiIpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiVEhFIDAiLCBjYXJyeV9jaGVjayhGYWxzZSwg"
+    "NDApKQogICAgICAgIHNlbGYuYXNzZXJ0SW4oIlRIRSBMSUdIVCBTVEFSVCIsIGNhcnJ5X2NoZWNr"
+    "KEZhbHNlLCAxMikpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiVEhFIFVOS05PV04gU0hJRUxEIiwg"
+    "Y2FycnlfY2hlY2soVHJ1ZSwgImhlYXZ5IikpCiAgICAgICAgc2VsZi5hc3NlcnRJbigiVEhFIFVO"
+    "S05PV04gU0hJRUxEIiwgY2FycnlfY2hlY2soRmFsc2UsIC0zKSkKCiAgICBkZWYgdGVzdF9ub19u"
+    "b25lKHNlbGYpOgogICAgICAgIGZvciB0IGluICgicmlmbGUiLCAiYXJtb3ItcGllcmNpbmciLCAi"
+    "aGFuZGd1biIsICJ4IiwgIiIsIE5vbmUpOgogICAgICAgICAgICBzZWxmLmFzc2VydElzSW5zdGFu"
+    "Y2Uoc2hpZWxkX2Zvcih0KSwgc3RyKQogICAgICAgIGZvciBmIGluIChUcnVlLCBGYWxzZSk6CiAg"
+    "ICAgICAgICAgIGZvciBsYiBpbiAoMCwgMTIsIDIwLCAyMSwgNTAsICJiYWQiLCBOb25lKToKICAg"
+    "ICAgICAgICAgICAgIHNlbGYuYXNzZXJ0SXNJbnN0YW5jZShjYXJyeV9jaGVjayhmLCBsYiksIHN0"
+    "cikKCgpkZWYgcnVuX3Rlc3RzKCkgLT4gaW50OgogICAgc3VpdGUgPSB1bml0dGVzdC5kZWZhdWx0"
+    "VGVzdExvYWRlci5sb2FkVGVzdHNGcm9tVGVzdENhc2UoVGVzdHMpCiAgICByZXR1cm4gMCBpZiB1"
+    "bml0dGVzdC5UZXh0VGVzdFJ1bm5lcih2ZXJib3NpdHk9MikucnVuKHN1aXRlKS53YXNTdWNjZXNz"
+    "ZnVsKCkgZWxzZSAxCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIGltcG9ydCBzeXMK"
+    "ICAgIGlmICItLXRlc3QiIGluIHN5cy5hcmd2OgogICAgICAgIHN5cy5leGl0KHJ1bl90ZXN0cygp"
+    "KQogICAgc3lzLmV4aXQoZGVtb25zdHJhdGUoKSkK"
+)
+swords_into_shields = _load("swords_into_shields", _SWORDS_INTO_SHIELDS_SRC)
+
+# ====================================================================
 # Unified CLI
 # ====================================================================
 
@@ -5963,6 +6076,12 @@ def cmd_bare_arms(ns):
     return bare_arms.demonstrate()
 
 
+def cmd_swords_into_shields(ns):
+    if ns.test:
+        return swords_into_shields.run_tests()
+    return swords_into_shields.demonstrate()
+
+
 def cmd_muse(ns):
     if ns.test:
         return muse.run_tests()
@@ -6039,7 +6158,8 @@ def cmd_test(ns):
                       ("energy_chain", energy_chain),
                       ("karmic_ledger", karmic_ledger),
                       ("shield_vs_gun", shield_vs_gun),
-                      ("bare_arms", bare_arms)):
+                      ("bare_arms", bare_arms),
+                      ("swords_into_shields", swords_into_shields)):
         print(f"\n{'=' * 72}\nTEST SUITE: {name}\n{'=' * 72}", flush=True)
         results.append((name, mod.run_tests()))
         sys.stderr.flush()
@@ -6193,6 +6313,8 @@ def cmd_journey(ns):
          lambda: shield_vs_gun.demonstrate()),
         ("LXIX. BARE ARMS — wordplay: bear bare arms, train the body",
          lambda: bare_arms.demonstrate()),
+        ("LXX. SWORDS INTO SHIELDS — we beat our guns into shields",
+         lambda: swords_into_shields.demonstrate()),
     ]
     print("=" * 72)
     print("THE JOURNEY OF THE AWAKENED TAO")
@@ -6203,7 +6325,7 @@ def cmd_journey(ns):
         print(f"\n\n{'#' * 72}\n# {title}\n{'#' * 72}\n")
         fn()
     print(f"\n\n{'#' * 72}")
-    print("# LXX. THE SOVEREIGN SOUL — your turn.")
+    print("# LXXI. THE SOVEREIGN SOUL — your turn.")
     print("# Run: python3 awakened_tao.py sovereign --reflect")
     print("#  or: python3 awakened_tao.py muse --reflect")
     print("#  or: python3 awakened_tao.py awaken-tao --reflect")
@@ -6487,6 +6609,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("bare-arms", help="wordplay: bear bare arms (satire, not legal advice)")
     p.add_argument("--test", action="store_true")
     p.set_defaults(func=cmd_bare_arms)
+
+    p = sub.add_parser("swords-into-shields", help="melt guns into shields (illustrative, not armor engineering)")
+    p.add_argument("--test", action="store_true")
+    p.set_defaults(func=cmd_swords_into_shields)
 
     p = sub.add_parser("muse", help="Deep Muse: the mirror of life")
     g = p.add_mutually_exclusive_group()
